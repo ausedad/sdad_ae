@@ -2,258 +2,29 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>بوابة سداد الإمارات - الدفع الإلكتروني الآمن</title>
-    <style>
-        :root {
-            --primary-green: #1a6b1a;
-            --text-dark: #2c2c2c;
-            --text-medium: #555555;
-            --background-light: #fafafa;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        .header {
-            background: var(--white);
-            padding: 32px 24px 28px;
-            text-align: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .logo-container {
-            margin-bottom: 20px;
-        }
-
-        .logo-image {
-            max-width: 180px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .header h1 {
-            color: var(--primary-green);
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: -0.3px;
-        }
-
-        .header .subtitle {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        /* Main Content */
-        .main-content {
-            background: var(--white);
-            padding: 40px 24px;
-        }
-
-        /* Phone Image */
-        .phone-image-container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .phone-image {
-            max-width: 100%;
-            width: 300px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        .about-section {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 0 8px;
-        }
-
-        .about-section h2 {
-            color: var(--text-dark);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-align: center;
-            letter-spacing: -0.2px;
-        }
-
-        .about-section p {
-            color: var(--text-medium);
-            font-size: 0.938rem;
-            line-height: 1.85;
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 16px 32px;
-            background: var(--primary-green);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 28px;
-            font-size: 1.063rem;
-            font-weight: 600;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .cta-button:hover {
-            background: #155815;
-        }
-
-        .cta-button:active {
-            background: #124712;
-        }
-
-        /* Responsive */
-        @media (min-width: 480px) {
-            .header {
-                padding: 40px 32px 36px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .logo-image {
-                max-width: 200px;
-            }
-
-            .main-content {
-                padding: 48px 32px;
-            }
-
-            .phone-image {
-                width: 340px;
-            }
-
-            .about-section {
-                max-width: 520px;
-            }
-
-            .about-section h2 {
-                font-size: 1.625rem;
-            }
-
-            .about-section p {
-                font-size: 1rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .header {
-                padding: 48px 40px 44px;
-            }
-
-            .header h1 {
-                font-size: 2.25rem;
-            }
-
-            .header .subtitle {
-                font-size: 1.063rem;
-            }
-
-            .logo-image {
-                max-width: 220px;
-            }
-
-            .main-content {
-                padding: 56px 40px;
-            }
-
-            .phone-image {
-                width: 360px;
-            }
-
-            .about-section {
-                max-width: 580px;
-            }
-
-            .about-section h2 {
-                font-size: 1.75rem;
-                margin-bottom: 20px;
-            }
-
-            .about-section p {
-                font-size: 1.063rem;
-                line-height: 1.9;
-                margin-bottom: 36px;
-            }
-
-            .cta-button {
-                max-width: 380px;
-                margin: 0 auto;
-                padding: 18px 36px;
-                font-size: 1.125rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .header {
-                padding: 56px 48px 52px;
-            }
-
-            .main-content {
-                padding: 64px 48px;
-            }
-
-            .about-section {
-                max-width: 640px;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة سداد الإمارات - الرئيسية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/ogJYCNVKSSWHpRAt.png" alt="الإمارات العربية المتحدة" class="logo-image">
-        </div>
-        <h1>بوابة سداد الإمارات</h1>
-        <p class="subtitle">الدفع الإلكتروني الآمن</p>
-    </header>
-
-    <main class="main-content">
-        <div class="phone-image-container">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/dWhlEBvDLdGMiZXk.png" alt="تطبيق سداد الإمارات" class="phone-image">
+    <div class="container">
+        <div class="card header-card">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044286479/aPMsccGlDoDqOtLn.jpg" alt="Logo" class="logo">
+            <h1 class="main-title">بوابة سداد الإمارات</h1>
+            <p class="sub-title">الدفع الإلكتروني الآمن</p>
         </div>
 
-        <section class="about-section">
-            <h2>عن سداد الإمارات</h2>
-            <p>
-                سداد الإمارات هي منصة دفع إلكتروني آمنة وسهلة الاستخدام تتيح للمواطنين والمقيمين في دولة الإمارات العربية المتحدة دفع فواتيرهم ورسومهم الحكومية والخاصة بكل يسر وأمان. تتميز المنصة بتكاملها مع جميع البنوك المحلية وتوفرها على أعلى معايير الأمان والخصوصية لضمان سلامة معاملاتك المالية. يمكنك استخدام سداد الإمارات لدفع فواتير الكهرباء والماء والهاتف والإنترنت والعديد من الخدمات الأخرى.
-            </p>
-            <a href="data.html" class="cta-button">بدء الخدمة</a>
-        </section>
-    </main>
+        <div class="card content-card">
+            <div class="image-container">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044286479/ogYytBiNsRhZmdtV.jpg" alt="Hero" class="hero-image">
+            </div>
+            <div class="text-content">
+                <h2 class="section-title">عن سداد الإمارات</h2>
+                <p class="description">سداد الإمارات هي منصة دفع إلكتروني آمنة وسهلة الاستخدام تتيح للمواطنين والمقيمين دفع فواتيرهم ورسومهم الحكومية والخاصة بكل يسر وأمان.</p>
+            </div>
+            <a href="page2.html" class="cta-button" style="text-decoration: none; display: block;">بدء الخدمة</a>
+        </div>
+    </div>
 </body>
 </html>
