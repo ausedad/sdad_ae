@@ -1,4 +1,3 @@
-/* 1. الإعدادات العامة للمشروع */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,20 +6,17 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #f4f7f6; /* خلفية الصفحة العامة مائلة للرمادي الفاتح */
+    background-color: #f4f7f6;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
     padding: 20px;
 }
 
 .container {
     width: 100%;
-    max-width: 400px; /* الحجم المثالي للهواتف كما في لقطات الشاشة */
+    max-width: 400px;
 }
 
-/* 2. تنسيق البطاقات (Cards) */
 .card {
     background: #ffffff;
     border-radius: 12px;
@@ -31,7 +27,6 @@ body {
     border: 1px solid #eee;
 }
 
-/* 3. تنسيق الهوية (Logo & Titles) */
 .logo {
     max-width: 180px;
     margin-bottom: 20px;
@@ -43,24 +38,14 @@ body {
     font-weight: 700;
 }
 
-.main-title-green {
-    color: #21a03e;
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 10px;
-}
-
 .sub-title {
     color: #888;
     font-size: 14px;
-    margin-top: 5px;
 }
 
-/* 4. معالجة صورة الهاتف (إزالة الخلفية السوداء) */
 .image-container {
     width: 100%;
     margin-bottom: 20px;
-    background-color: #fff; /* تأكيد الخلفية البيضاء تحت الصورة */
     display: flex;
     justify-content: center;
 }
@@ -68,12 +53,9 @@ body {
 .hero-image {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    /* الإضافة الأخيرة: هذه الخاصية تدمج الصورة مع الخلفية البيضاء وتخفي اللون الأسود */
-    mix-blend-mode: screen; 
+    /* تم حذف فلتر المعالجة لزيادة السرعة لأن الصورة شفافة الآن */
 }
 
-/* 5. النصوص والمحتوى */
 .text-content {
     text-align: right;
     margin-bottom: 20px;
@@ -83,7 +65,6 @@ body {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #333;
 }
 
 .description {
@@ -92,64 +73,31 @@ body {
     line-height: 1.8;
 }
 
-/* 6. تنسيق النماذج (Forms) والحقول */
-.form-card {
-    text-align: right;
-}
-
+/* تنسيقات الصفحة الثانية المدمجة */
 .input-group {
+    text-align: right;
     margin-bottom: 15px;
 }
 
 .input-group label {
     display: block;
     font-size: 13px;
-    color: #444;
-    margin-bottom: 8px;
     font-weight: 600;
+    margin-bottom: 8px;
 }
 
-.input-group input, 
-.input-group select {
+.input-group input, .input-group select {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px;
     border: 1px solid #ddd;
-    /* الحافة الخضراء المميزة في الصفحة الثانية */
-    border-left: 5px solid #008000; 
+    border-left: 5px solid #008000;
     border-radius: 6px;
-    font-family: 'Cairo', sans-serif;
     outline: none;
-    transition: border-color 0.3s ease;
 }
 
-.input-group input:focus {
-    border-color: #008000;
-}
-
-/* تنسيق حقل المبلغ */
-.amount-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.currency {
-    position: absolute;
-    left: 15px;
-    color: #999;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.amount-container input {
-    text-align: right;
-    padding-left: 50px;
-}
-
-/* 7. الأزرار (Buttons) */
 .cta-button {
     background-color: #008000;
-    color: #ffffff;
+    color: #fff;
     width: 100%;
     padding: 14px;
     border: none;
@@ -157,17 +105,5 @@ body {
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s active;
-    font-family: 'Cairo', sans-serif;
-    display: block;
     text-align: center;
-    text-decoration: none; /* لإزالة الخط تحت الرابط */
-}
-
-.cta-button:hover {
-    background-color: #006400;
-}
-
-.cta-button:active {
-    transform: scale(0.98);
 }
