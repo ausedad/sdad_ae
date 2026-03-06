@@ -1,138 +1,114 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة سداد الإمارات - الدفع الإلكتروني</title>
-    <style>
-        /* التنسيقات العامة */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7f9;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        /* حاوية البطاقة العلوية (الشعار والعنوان) */
-        .header-card {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 400px;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
+<title>بوابة سداد الإمارات</title>
 
-        .logo {
-            width: 180px;
-            margin-bottom: 20px;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        .header-card h1 {
-            color: #008000; /* اللون الأخضر الرسمي */
-            font-size: 24px;
-            margin: 10px 0;
-        }
+<style>
 
-        .header-card p {
-            color: #777;
-            font-size: 16px;
-            margin: 0;
-        }
+body{
+background:#f2f2f2;
+font-family:Tahoma;
+}
 
-        /* حاوية المحتوى الرئيسي */
-        .content-card {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 400px;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: right;
-        }
+.card-box{
+background:#ffffff;
+border-radius:20px;
+padding:40px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+margin-bottom:40px;
+}
 
-        .main-image {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
+.logo{
+width:260px;
+margin-bottom:25px;
+}
 
-        .content-card h2 {
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 15px;
-        }
+.title{
+color:#0a7a1f;
+font-weight:bold;
+font-size:40px;
+margin-bottom:10px;
+}
 
-        .content-card p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 20px;
-        }
+.subtitle{
+color:#555;
+font-size:22px;
+}
 
-        /* زر بدء الخدمة */
-        .btn-start {
-            display: block;
-            width: 100%;
-            background-color: #008000;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
+.phone{
+width:420px;
+max-width:100%;
+margin:40px auto;
+display:block;
+}
 
-        .btn-start:hover {
-            background-color: #006400;
-        }
+.section-title{
+font-size:36px;
+font-weight:bold;
+margin-bottom:25px;
+}
 
-        /* تحسين العرض للهواتف */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-        }
-    </style>
+.text-content{
+font-size:20px;
+line-height:2;
+color:#444;
+max-width:700px;
+margin:auto;
+}
+
+.start-btn{
+background:#0a7a1f;
+border:none;
+font-size:22px;
+padding:15px;
+border-radius:10px;
+width:100%;
+margin-top:40px;
+}
+
+</style>
 </head>
+
 <body>
 
-    <div class="header-card">
-        <img src="https://ibb.co/39RkjXzL" alt="Federal Tax Authority" class="logo">
-        <h1>بوابة سداد الإمارات</h1>
-        <p>الدفع الإلكتروني الآمن</p>
-    </div>
+<div class="container py-5">
 
-    <div class="content-card">
-        <img src="https://ibb.co/ch4MYSgv" alt="Sadaad UAE Mobile" class="main-image">
-        
-        <h2>عن سداد الإمارات</h2>
-        <p>
-            سداد الإمارات هي منصة دفع إلكتروني آمنة وسهلة الاستخدام تتيح للمواطنين والمقيمين في دولة الإمارات العربية المتحدة دفع فواتيرهم ورسومهم الحكومية والخاصة بكل يسر وأمان. تتميز المنصة بتكاملها مع جميع البنوك المحلية وتوفرها على أعلى معايير الأمان والخصوصية لضمان سلامة معاملاتك المالية.
-            <br><br>
-            يمكنك استخدام سداد الإمارات لدفع فواتير الكهرباء والماء والهاتف والإنترنت والعديد من الخدمات الأخرى.
-        </p>
+<div class="card-box">
 
-        <button class="btn-start" onclick="startService()">بدء الخدمة</button>
-    </div>
+<img src="logo.png" class="logo">
 
-    <script>
-        function startService() {
-            // هنا يمكنك إضافة منطق الانتقال للصفحة التالية
-            alert("سيتم نقلك إلى صفحة بدء الخدمة...");
-            // window.location.href = "page2.html"; 
-        }
-    </script>
+<h1 class="title">بوابة سداد الإمارات</h1>
+
+<p class="subtitle">الدفع الإلكتروني الآمن</p>
+
+</div>
+
+
+<div class="text-center">
+
+<img src="phone.png" class="phone">
+
+<h2 class="section-title">عن سداد الإمارات</h2>
+
+<p class="text-content">
+سداد الإمارات هي منصة دفع إلكتروني آمنة وسهلة الاستخدام تتيح للمواطنين والمقيمين في دولة الإمارات العربية المتحدة دفع فواتيرهم ورسومهم الحكومية والخاصة بكل يسر وأمان.
+تتميز المنصة بتكاملها مع جميع البنوك المحلية وتوفرها على أعلى معايير الأمان والخصوصية لضمان سلامة معاملاتك المالية.
+يمكنك استخدام سداد الإمارات لدفع فواتير الكهرباء والماء والهاتف والإنترنت والعديد من الخدمات الأخرى.
+</p>
+
+<button class="btn btn-success start-btn">
+بدء الخدمة
+</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
